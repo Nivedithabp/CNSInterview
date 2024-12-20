@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +8,13 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'angular18_project';
+  searchQuery: string = '';
+
+  constructor(private router: Router) {}
+
+  onSearch(): void {
+    this.router.navigate(['/anatomicalstructures'], {
+      queryParams: { search: this.searchQuery }
+    });
+  }
 }

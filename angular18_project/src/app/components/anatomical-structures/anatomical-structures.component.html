@@ -1,0 +1,29 @@
+<div class="container mt-3">
+    <div class="row mb-3">
+      <div class="col-12">
+        <h2>Unique Anatomical Structures</h2>
+      </div>
+      <div class="col-md-6 offset-md-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search anatomical structures..."
+          [(ngModel)]="searchQuery"
+          (input)="onSearch()"
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div *ngFor="let structure of filteredStructures" class="col-md-4">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">
+              <a [href]="'#' + structure.id" class="text-decoration-none">{{ structure.name }}</a>
+            </h5>
+            <p class="card-text"><strong>ID:</strong> {{ structure.id }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

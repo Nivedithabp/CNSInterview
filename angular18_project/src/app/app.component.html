@@ -6,11 +6,16 @@
     </button>
     <div class="collapse navbar-collapse" id="mynavbar">
       <form class="d-flex ms-auto">
-        <input class="form-control me-2" type="text" placeholder="Search">
-        <button class="btn btn-primary" type="button">Search</button>
+        <input
+          class="form-control me-2"
+          type="text"
+          placeholder="Search"
+          [(ngModel)]="searchQuery"
+        />
+        <button class="btn btn-primary" type="button" (click)="onSearch()">Search</button>
       </form>
     </div>
   </div>
 </nav>
 
-<router-outlet />
+<router-outlet></router-outlet>
