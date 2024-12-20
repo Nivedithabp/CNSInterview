@@ -1,0 +1,13 @@
+{
+    "/ols/api": {
+      "target": "https://www.ebi.ac.uk",
+      "secure": true,
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/ols/api": "/ols/api"
+      },
+      "logLevel": "debug"
+    }
+  }
+  
+  

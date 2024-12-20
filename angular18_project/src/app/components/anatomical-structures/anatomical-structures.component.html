@@ -1,29 +1,57 @@
-<div class="container mt-3">
-    <div class="row mb-3">
-      <div class="col-12">
-        <h2>Unique Anatomical Structures</h2>
-      </div>
-      <div class="col-md-6 offset-md-3">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Search anatomical structures..."
-          [(ngModel)]="searchQuery"
-          (input)="onSearch()"
-        />
-      </div>
-    </div>
-    <div class="row">
-      <div *ngFor="let structure of filteredStructures" class="col-md-4">
-        <div class="card mb-3">
-          <div class="card-body">
-            <h5 class="card-title">
-              <a [href]="'#' + structure.id" class="text-decoration-none">{{ structure.name }}</a>
-            </h5>
-            <p class="card-text"><strong>ID:</strong> {{ structure.id }}</p>
-          </div>
+<div class="container mt-5">
+  <div class="row gy-4">
+    <div *ngFor="let structure of filteredStructures" class="col-md-6 col-lg-4 mt-5">
+      <div class="card shadow-sm border-0 h-100">
+        <!-- Card Header -->
+        <div class="card-header bg-light fw-bold">
+          <a href="javascript:void(0)" class="text-decoration-none text-blue" (click)="showDetails(structure.id || '')">
+            {{ structure.name }}
+          </a>
+        </div>
+        <!-- Card Body -->
+        <div class="card-body">
+          <p class="card-text text-muted">
+            <strong>ID:</strong> {{ structure.id || 'N/A' }}
+          </p>
         </div>
       </div>
     </div>
   </div>
-  
+
+ <!-- Modal -->
+ <div *ngIf="selectedStructureDetails || errorMessage" class="modal show d-block p-3" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h5 class="modal-title">{{ selectedStructureDetails?.name || 'Error' }}</h5>
+        <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body">
+        <table class="table table-borderless">
+          <tbody>
+            <tr>
+              <td class="bg-primary text-white fw-bold">Description</td>
+              <td>{{ selectedStructureDetails?.description || 'No description available' }}</td>
+            </tr>
+            <tr>
+              <td class="bg-primary text-white fw-bold">Ontology Link</td>
+              <td>{{ selectedStructureDetails?.ontologyLink || 'No ontology link available' }}</td>
+            </tr>
+            <tr>
+              <td class="bg-primary text-white fw-bold">IRI</td>
+              <td>{{ selectedStructureDetails?.iri || 'No IRI available' }}</td>
+            </tr>
+            <tr *ngIf="errorMessage">
+              <td colspan="2" class="text-danger text-center">{{ errorMessage }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>

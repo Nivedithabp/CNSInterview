@@ -15,4 +15,12 @@ export enum BM_TYPE {
     cell_types: Array<Structure>;
     biomarkers: Array<Structure>;
   }
+
+  export interface StructureDetail {
+    name: string; 
+    description: string; 
+    ontologyLink: string; 
+    iri: string; 
+  }
+  
   
