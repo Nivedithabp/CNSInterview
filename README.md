@@ -41,6 +41,8 @@ https://www.ebi.ac.uk/ols/api/ontologies/uberon/terms?iri=http://purl.obolibrary
 
 ### Output
 <img width="1378" alt="Screenshot 2024-12-20 at 9 04 51 PM" src="https://github.com/user-attachments/assets/5db9a56d-2258-49f8-a3ad-26bd66fd809a" />
+<img width="1078" alt="image" src="https://github.com/user-attachments/assets/430df158-74d8-4bbe-9b6b-c0c451272bfc" />
+
 
 ## Technologies Used
 - **Frontend**: Angular 18
